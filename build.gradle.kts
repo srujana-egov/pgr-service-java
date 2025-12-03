@@ -8,7 +8,7 @@ repositories {
 }
 
 allprojects {
-    group = "com.pgr_service.api"
+    group = "org.egov.pgr"
     version = "0.0.1"
 }
 
