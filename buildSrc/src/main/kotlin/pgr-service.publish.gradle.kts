@@ -27,9 +27,9 @@ configure<PublishingExtension> {
                 }
 
                 scm {
-                    connection.set("scm:git:git://github.com/stainless-sdks/pgr-service-java.git")
-                    developerConnection.set("scm:git:git://github.com/stainless-sdks/pgr-service-java.git")
-                    url.set("https://github.com/stainless-sdks/pgr-service-java")
+                    connection.set("scm:git:git://github.com/srujana-egov/pgr-service-java.git")
+                    developerConnection.set("scm:git:git://github.com/srujana-egov/pgr-service-java.git")
+                    url.set("https://github.com/srujana-egov/pgr-service-java")
                 }
 
                 versionMapping {
