@@ -1,27 +1,27 @@
 # Pgr Service Java API Library
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.pgr_service.api/pgr-service-java)](https://central.sonatype.com/artifact/com.pgr_service.api/pgr-service-java/0.0.1)
-[![javadoc](https://javadoc.io/badge2/com.pgr_service.api/pgr-service-java/0.0.1/javadoc.svg)](https://javadoc.io/doc/com.pgr_service.api/pgr-service-java/0.0.1)
+[![Maven Central](https://img.shields.io/maven-central/v/org.egov.pgr/pgr-service-java)](https://central.sonatype.com/artifact/org.egov.pgr/pgr-service-java/0.0.1)
+[![javadoc](https://javadoc.io/badge2/org.egov.pgr/pgr-service-java/0.0.1/javadoc.svg)](https://javadoc.io/doc/org.egov.pgr/pgr-service-java/0.0.1)
 
 The Pgr Service Java SDK provides convenient access to the [Pgr Service REST API](https://digit-lts.digit.org) from applications written in Java.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
-The REST API documentation can be found on [digit-lts.digit.org](https://digit-lts.digit.org). Javadocs are available on [javadoc.io](https://javadoc.io/doc/com.pgr_service.api/pgr-service-java/0.0.1).
+The REST API documentation can be found on [digit-lts.digit.org](https://digit-lts.digit.org). Javadocs are available on [javadoc.io](https://javadoc.io/doc/org.egov.pgr/pgr-service-java/0.0.1).
 
 ## Installation
 
 ### Gradle
 
 ```kotlin
-implementation("com.pgr_service.api:pgr-service-java:0.0.1")
+implementation("org.egov.pgr:pgr-service-java:0.0.1")
 ```
 
 ### Maven
 
 ```xml
 <dependency>
-  <groupId>com.pgr_service.api</groupId>
+  <groupId>org.egov.pgr</groupId>
   <artifactId>pgr-service-java</artifactId>
   <version>0.0.1</version>
 </dependency>
@@ -34,11 +34,11 @@ This library requires Java 8 or later.
 ## Usage
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClient;
-import com.pgr_service.api.models.citizenservice.CitizenServiceCreateParams;
-import com.pgr_service.api.models.citizenservice.ServiceResponse;
-import com.pgr_service.api.models.citizenservice.ServiceWrapper;
+import org.egov.pgr.client.PgrServiceClient;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
+import org.egov.pgr.models.citizenservice.CitizenServiceCreateParams;
+import org.egov.pgr.models.citizenservice.ServiceResponse;
+import org.egov.pgr.models.citizenservice.ServiceWrapper;
 
 // Configures using the `pgrservice.apiKey` and `pgrservice.baseUrl` system properties
 // Or configures using the `PGR_SERVICE_API_KEY` and `PGR_SERVICE_BASE_URL` environment variables
@@ -53,8 +53,8 @@ ServiceResponse serviceResponse = client.citizenService().create(params);
 Configure the client using system properties or environment variables:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClient;
+import org.egov.pgr.client.PgrServiceClient;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
 
 // Configures using the `pgrservice.apiKey` and `pgrservice.baseUrl` system properties
 // Or configures using the `PGR_SERVICE_API_KEY` and `PGR_SERVICE_BASE_URL` environment variables
@@ -64,8 +64,8 @@ PgrServiceClient client = PgrServiceOkHttpClient.fromEnv();
 Or manually:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClient;
+import org.egov.pgr.client.PgrServiceClient;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
 
 PgrServiceClient client = PgrServiceOkHttpClient.builder()
     .apiKey("My API Key")
@@ -75,8 +75,8 @@ PgrServiceClient client = PgrServiceOkHttpClient.builder()
 Or using a combination of the two approaches:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClient;
+import org.egov.pgr.client.PgrServiceClient;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
 
 PgrServiceClient client = PgrServiceOkHttpClient.builder()
     // Configures using the `pgrservice.apiKey` and `pgrservice.baseUrl` system properties
@@ -104,7 +104,7 @@ System properties take precedence over environment variables.
 To temporarily use a modified client configuration, while reusing the same connection and thread pools, call `withOptions()` on any client or service:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
+import org.egov.pgr.client.PgrServiceClient;
 
 PgrServiceClient clientWithOptions = client.withOptions(optionsBuilder -> {
     optionsBuilder.baseUrl("https://example.com");
@@ -133,12 +133,12 @@ Because each class is immutable, builder modification will _never_ affect alread
 The default client is synchronous. To switch to asynchronous execution, call the `async()` method:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClient;
-import com.pgr_service.api.models.citizenservice.CitizenServiceCreateParams;
-import com.pgr_service.api.models.citizenservice.ServiceResponse;
-import com.pgr_service.api.models.citizenservice.ServiceWrapper;
 import java.util.concurrent.CompletableFuture;
+import org.egov.pgr.client.PgrServiceClient;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
+import org.egov.pgr.models.citizenservice.CitizenServiceCreateParams;
+import org.egov.pgr.models.citizenservice.ServiceResponse;
+import org.egov.pgr.models.citizenservice.ServiceWrapper;
 
 // Configures using the `pgrservice.apiKey` and `pgrservice.baseUrl` system properties
 // Or configures using the `PGR_SERVICE_API_KEY` and `PGR_SERVICE_BASE_URL` environment variables
@@ -151,12 +151,12 @@ CompletableFuture<ServiceResponse> serviceResponse = client.async().citizenServi
 Or create an asynchronous client from the beginning:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClientAsync;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClientAsync;
-import com.pgr_service.api.models.citizenservice.CitizenServiceCreateParams;
-import com.pgr_service.api.models.citizenservice.ServiceResponse;
-import com.pgr_service.api.models.citizenservice.ServiceWrapper;
 import java.util.concurrent.CompletableFuture;
+import org.egov.pgr.client.PgrServiceClientAsync;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClientAsync;
+import org.egov.pgr.models.citizenservice.CitizenServiceCreateParams;
+import org.egov.pgr.models.citizenservice.ServiceResponse;
+import org.egov.pgr.models.citizenservice.ServiceWrapper;
 
 // Configures using the `pgrservice.apiKey` and `pgrservice.baseUrl` system properties
 // Or configures using the `PGR_SERVICE_API_KEY` and `PGR_SERVICE_BASE_URL` environment variables
@@ -175,11 +175,11 @@ The SDK defines methods that deserialize responses into instances of Java classe
 To access this data, prefix any HTTP method call on a client or service with `withRawResponse()`:
 
 ```java
-import com.pgr_service.api.core.http.Headers;
-import com.pgr_service.api.core.http.HttpResponseFor;
-import com.pgr_service.api.models.citizenservice.CitizenServiceCreateParams;
-import com.pgr_service.api.models.citizenservice.ServiceResponse;
-import com.pgr_service.api.models.citizenservice.ServiceWrapper;
+import org.egov.pgr.core.http.Headers;
+import org.egov.pgr.core.http.HttpResponseFor;
+import org.egov.pgr.models.citizenservice.CitizenServiceCreateParams;
+import org.egov.pgr.models.citizenservice.ServiceResponse;
+import org.egov.pgr.models.citizenservice.ServiceWrapper;
 
 ServiceWrapper params = ServiceWrapper.builder().build();
 HttpResponseFor<ServiceResponse> serviceResponse = client.citizenService().withRawResponse().create(params);
@@ -191,7 +191,7 @@ Headers headers = serviceResponse.headers();
 You can still deserialize the response into an instance of a Java class if needed:
 
 ```java
-import com.pgr_service.api.models.citizenservice.ServiceResponse;
+import org.egov.pgr.models.citizenservice.ServiceResponse;
 
 ServiceResponse parsedServiceResponse = serviceResponse.parse();
 ```
@@ -200,26 +200,26 @@ ServiceResponse parsedServiceResponse = serviceResponse.parse();
 
 The SDK throws custom unchecked exception types:
 
-- [`PgrServiceServiceException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/PgrServiceServiceException.kt): Base class for HTTP errors. See this table for which exception subclass is thrown for each HTTP status code:
+- [`PgrServiceServiceException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/PgrServiceServiceException.kt): Base class for HTTP errors. See this table for which exception subclass is thrown for each HTTP status code:
 
-  | Status | Exception                                                                                                                            |
-  | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-  | 400    | [`BadRequestException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/BadRequestException.kt)                     |
-  | 401    | [`UnauthorizedException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/UnauthorizedException.kt)                 |
-  | 403    | [`PermissionDeniedException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/PermissionDeniedException.kt)         |
-  | 404    | [`NotFoundException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/NotFoundException.kt)                         |
-  | 422    | [`UnprocessableEntityException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/UnprocessableEntityException.kt)   |
-  | 429    | [`RateLimitException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/RateLimitException.kt)                       |
-  | 5xx    | [`InternalServerException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/InternalServerException.kt)             |
-  | others | [`UnexpectedStatusCodeException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/UnexpectedStatusCodeException.kt) |
+  | Status | Exception                                                                                                                     |
+  | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
+  | 400    | [`BadRequestException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/BadRequestException.kt)                     |
+  | 401    | [`UnauthorizedException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/UnauthorizedException.kt)                 |
+  | 403    | [`PermissionDeniedException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/PermissionDeniedException.kt)         |
+  | 404    | [`NotFoundException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/NotFoundException.kt)                         |
+  | 422    | [`UnprocessableEntityException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/UnprocessableEntityException.kt)   |
+  | 429    | [`RateLimitException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/RateLimitException.kt)                       |
+  | 5xx    | [`InternalServerException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/InternalServerException.kt)             |
+  | others | [`UnexpectedStatusCodeException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/UnexpectedStatusCodeException.kt) |
 
-- [`PgrServiceIoException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/PgrServiceIoException.kt): I/O networking errors.
+- [`PgrServiceIoException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/PgrServiceIoException.kt): I/O networking errors.
 
-- [`PgrServiceRetryableException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/PgrServiceRetryableException.kt): Generic error indicating a failure that could be retried by the client.
+- [`PgrServiceRetryableException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/PgrServiceRetryableException.kt): Generic error indicating a failure that could be retried by the client.
 
-- [`PgrServiceInvalidDataException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/PgrServiceInvalidDataException.kt): Failure to interpret successfully parsed data. For example, when accessing a property that's supposed to be required, but the API unexpectedly omitted it from the response.
+- [`PgrServiceInvalidDataException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/PgrServiceInvalidDataException.kt): Failure to interpret successfully parsed data. For example, when accessing a property that's supposed to be required, but the API unexpectedly omitted it from the response.
 
-- [`PgrServiceException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/PgrServiceException.kt): Base class for all exceptions. Most errors will result in one of the previously mentioned ones, but completely generic errors may be thrown using the base class.
+- [`PgrServiceException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/PgrServiceException.kt): Base class for all exceptions. Most errors will result in one of the previously mentioned ones, but completely generic errors may be thrown using the base class.
 
 ## Logging
 
@@ -249,7 +249,7 @@ The SDK depends on [Jackson](https://github.com/FasterXML/jackson) for JSON seri
 
 The SDK throws an exception if it detects an incompatible Jackson version at runtime (e.g. if the default version was overridden in your Maven or Gradle config).
 
-If the SDK threw an exception, but you're _certain_ the version is compatible, then disable the version check using the `checkJacksonVersionCompatibility` on [`PgrServiceOkHttpClient`](pgr-service-java-client-okhttp/src/main/kotlin/com/pgr_service/api/client/okhttp/PgrServiceOkHttpClient.kt) or [`PgrServiceOkHttpClientAsync`](pgr-service-java-client-okhttp/src/main/kotlin/com/pgr_service/api/client/okhttp/PgrServiceOkHttpClientAsync.kt).
+If the SDK threw an exception, but you're _certain_ the version is compatible, then disable the version check using the `checkJacksonVersionCompatibility` on [`PgrServiceOkHttpClient`](pgr-service-java-client-okhttp/src/main/kotlin/org/egov/pgr/client/okhttp/PgrServiceOkHttpClient.kt) or [`PgrServiceOkHttpClientAsync`](pgr-service-java-client-okhttp/src/main/kotlin/org/egov/pgr/client/okhttp/PgrServiceOkHttpClientAsync.kt).
 
 > [!CAUTION]
 > We make no guarantee that the SDK works correctly when the Jackson version check is disabled.
@@ -273,8 +273,8 @@ The API may also explicitly instruct the SDK to retry or not retry a request.
 To set a custom number of retries, configure the client using the `maxRetries` method:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClient;
+import org.egov.pgr.client.PgrServiceClient;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
 
 PgrServiceClient client = PgrServiceOkHttpClient.builder()
     .fromEnv()
@@ -289,7 +289,7 @@ Requests time out after 1 minute by default.
 To set a custom timeout, configure the method call using the `timeout` method:
 
 ```java
-import com.pgr_service.api.models.citizenservice.ServiceResponse;
+import org.egov.pgr.models.citizenservice.ServiceResponse;
 
 ServiceResponse serviceResponse = client.citizenService().create(
   params, RequestOptions.builder().timeout(Duration.ofSeconds(30)).build()
@@ -299,9 +299,9 @@ ServiceResponse serviceResponse = client.citizenService().create(
 Or configure the default for all method calls at the client level:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClient;
 import java.time.Duration;
+import org.egov.pgr.client.PgrServiceClient;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
 
 PgrServiceClient client = PgrServiceOkHttpClient.builder()
     .fromEnv()
@@ -314,10 +314,10 @@ PgrServiceClient client = PgrServiceOkHttpClient.builder()
 To route requests through a proxy, configure the client using the `proxy` method:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClient;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
+import org.egov.pgr.client.PgrServiceClient;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
 
 PgrServiceClient client = PgrServiceOkHttpClient.builder()
     .fromEnv()
@@ -338,8 +338,8 @@ PgrServiceClient client = PgrServiceOkHttpClient.builder()
 To configure how HTTPS connections are secured, configure the client using the `sslSocketFactory`, `trustManager`, and `hostnameVerifier` methods:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClient;
+import org.egov.pgr.client.PgrServiceClient;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
 
 PgrServiceClient client = PgrServiceOkHttpClient.builder()
     .fromEnv()
@@ -355,8 +355,8 @@ PgrServiceClient client = PgrServiceOkHttpClient.builder()
 The SDK sends requests to the production by default. To send requests to a different environment, configure the client like so:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClient;
+import org.egov.pgr.client.PgrServiceClient;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
 
 PgrServiceClient client = PgrServiceOkHttpClient.builder()
     .fromEnv()
@@ -371,10 +371,10 @@ The SDK consists of three artifacts:
 - `pgr-service-java-core`
   - Contains core SDK logic
   - Does not depend on [OkHttp](https://square.github.io/okhttp)
-  - Exposes [`PgrServiceClient`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/client/PgrServiceClient.kt), [`PgrServiceClientAsync`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/client/PgrServiceClientAsync.kt), [`PgrServiceClientImpl`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/client/PgrServiceClientImpl.kt), and [`PgrServiceClientAsyncImpl`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/client/PgrServiceClientAsyncImpl.kt), all of which can work with any HTTP client
+  - Exposes [`PgrServiceClient`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/client/PgrServiceClient.kt), [`PgrServiceClientAsync`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/client/PgrServiceClientAsync.kt), [`PgrServiceClientImpl`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/client/PgrServiceClientImpl.kt), and [`PgrServiceClientAsyncImpl`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/client/PgrServiceClientAsyncImpl.kt), all of which can work with any HTTP client
 - `pgr-service-java-client-okhttp`
   - Depends on [OkHttp](https://square.github.io/okhttp)
-  - Exposes [`PgrServiceOkHttpClient`](pgr-service-java-client-okhttp/src/main/kotlin/com/pgr_service/api/client/okhttp/PgrServiceOkHttpClient.kt) and [`PgrServiceOkHttpClientAsync`](pgr-service-java-client-okhttp/src/main/kotlin/com/pgr_service/api/client/okhttp/PgrServiceOkHttpClientAsync.kt), which provide a way to construct [`PgrServiceClientImpl`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/client/PgrServiceClientImpl.kt) and [`PgrServiceClientAsyncImpl`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/client/PgrServiceClientAsyncImpl.kt), respectively, using OkHttp
+  - Exposes [`PgrServiceOkHttpClient`](pgr-service-java-client-okhttp/src/main/kotlin/org/egov/pgr/client/okhttp/PgrServiceOkHttpClient.kt) and [`PgrServiceOkHttpClientAsync`](pgr-service-java-client-okhttp/src/main/kotlin/org/egov/pgr/client/okhttp/PgrServiceOkHttpClientAsync.kt), which provide a way to construct [`PgrServiceClientImpl`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/client/PgrServiceClientImpl.kt) and [`PgrServiceClientAsyncImpl`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/client/PgrServiceClientAsyncImpl.kt), respectively, using OkHttp
 - `pgr-service-java`
   - Depends on and exposes the APIs of both `pgr-service-java-core` and `pgr-service-java-client-okhttp`
   - Does not have its own logic
@@ -389,16 +389,16 @@ This structure allows replacing the SDK's default HTTP client without pulling in
 To use a customized `OkHttpClient`:
 
 1. Replace your [`pgr-service-java` dependency](#installation) with `pgr-service-java-core`
-2. Copy `pgr-service-java-client-okhttp`'s [`OkHttpClient`](pgr-service-java-client-okhttp/src/main/kotlin/com/pgr_service/api/client/okhttp/OkHttpClient.kt) class into your code and customize it
-3. Construct [`PgrServiceClientImpl`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/client/PgrServiceClientImpl.kt) or [`PgrServiceClientAsyncImpl`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/client/PgrServiceClientAsyncImpl.kt), similarly to [`PgrServiceOkHttpClient`](pgr-service-java-client-okhttp/src/main/kotlin/com/pgr_service/api/client/okhttp/PgrServiceOkHttpClient.kt) or [`PgrServiceOkHttpClientAsync`](pgr-service-java-client-okhttp/src/main/kotlin/com/pgr_service/api/client/okhttp/PgrServiceOkHttpClientAsync.kt), using your customized client
+2. Copy `pgr-service-java-client-okhttp`'s [`OkHttpClient`](pgr-service-java-client-okhttp/src/main/kotlin/org/egov/pgr/client/okhttp/OkHttpClient.kt) class into your code and customize it
+3. Construct [`PgrServiceClientImpl`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/client/PgrServiceClientImpl.kt) or [`PgrServiceClientAsyncImpl`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/client/PgrServiceClientAsyncImpl.kt), similarly to [`PgrServiceOkHttpClient`](pgr-service-java-client-okhttp/src/main/kotlin/org/egov/pgr/client/okhttp/PgrServiceOkHttpClient.kt) or [`PgrServiceOkHttpClientAsync`](pgr-service-java-client-okhttp/src/main/kotlin/org/egov/pgr/client/okhttp/PgrServiceOkHttpClientAsync.kt), using your customized client
 
 ### Completely custom HTTP client
 
 To use a completely custom HTTP client:
 
 1. Replace your [`pgr-service-java` dependency](#installation) with `pgr-service-java-core`
-2. Write a class that implements the [`HttpClient`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/core/http/HttpClient.kt) interface
-3. Construct [`PgrServiceClientImpl`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/client/PgrServiceClientImpl.kt) or [`PgrServiceClientAsyncImpl`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/client/PgrServiceClientAsyncImpl.kt), similarly to [`PgrServiceOkHttpClient`](pgr-service-java-client-okhttp/src/main/kotlin/com/pgr_service/api/client/okhttp/PgrServiceOkHttpClient.kt) or [`PgrServiceOkHttpClientAsync`](pgr-service-java-client-okhttp/src/main/kotlin/com/pgr_service/api/client/okhttp/PgrServiceOkHttpClientAsync.kt), using your new client class
+2. Write a class that implements the [`HttpClient`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/core/http/HttpClient.kt) interface
+3. Construct [`PgrServiceClientImpl`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/client/PgrServiceClientImpl.kt) or [`PgrServiceClientAsyncImpl`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/client/PgrServiceClientAsyncImpl.kt), similarly to [`PgrServiceOkHttpClient`](pgr-service-java-client-okhttp/src/main/kotlin/org/egov/pgr/client/okhttp/PgrServiceOkHttpClient.kt) or [`PgrServiceOkHttpClientAsync`](pgr-service-java-client-okhttp/src/main/kotlin/org/egov/pgr/client/okhttp/PgrServiceOkHttpClientAsync.kt), using your new client class
 
 ## Undocumented API functionality
 
@@ -409,8 +409,8 @@ The SDK is typed for convenient usage of the documented API. However, it also su
 To set undocumented parameters, call the `putAdditionalHeader`, `putAdditionalQueryParam`, or `putAdditionalBodyProperty` methods on any `Params` class:
 
 ```java
-import com.pgr_service.api.core.JsonValue;
-import com.pgr_service.api.models.citizenservice.CitizenServiceCreateParams;
+import org.egov.pgr.core.JsonValue;
+import org.egov.pgr.models.citizenservice.CitizenServiceCreateParams;
 
 CitizenServiceCreateParams params = CitizenServiceCreateParams.builder()
     .putAdditionalHeader("Secret-Header", "42")
@@ -421,23 +421,23 @@ CitizenServiceCreateParams params = CitizenServiceCreateParams.builder()
 
 These can be accessed on the built object later using the `_additionalHeaders()`, `_additionalQueryParams()`, and `_additionalBodyProperties()` methods.
 
-To set a documented parameter or property to an undocumented or not yet supported _value_, pass a [`JsonValue`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/core/Values.kt) object to its setter:
+To set a documented parameter or property to an undocumented or not yet supported _value_, pass a [`JsonValue`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/core/Values.kt) object to its setter:
 
 ```java
-import com.pgr_service.api.models.citizenservice.CitizenServiceCreateParams;
-import com.pgr_service.api.models.citizenservice.ServiceWrapper;
+import org.egov.pgr.models.citizenservice.CitizenServiceCreateParams;
+import org.egov.pgr.models.citizenservice.ServiceWrapper;
 
 CitizenServiceCreateParams params = CitizenServiceCreateParams.builder()
     .serviceWrapper(ServiceWrapper.builder().build())
     .build();
 ```
 
-The most straightforward way to create a [`JsonValue`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/core/Values.kt) is using its `from(...)` method:
+The most straightforward way to create a [`JsonValue`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/core/Values.kt) is using its `from(...)` method:
 
 ```java
-import com.pgr_service.api.core.JsonValue;
 import java.util.List;
 import java.util.Map;
+import org.egov.pgr.core.JsonValue;
 
 // Create primitive JSON values
 JsonValue nullValue = JsonValue.from(null);
@@ -476,8 +476,8 @@ JsonValue complexValue = JsonValue.from(Map.of(
 To access undocumented response properties, call the `_additionalProperties()` method:
 
 ```java
-import com.pgr_service.api.core.JsonValue;
 import java.util.Map;
+import org.egov.pgr.core.JsonValue;
 
 Map<String, JsonValue> additionalProperties = client.citizenService().create(params)._additionalProperties();
 JsonValue secretPropertyValue = additionalProperties.get("secretProperty");
@@ -506,8 +506,8 @@ String result = secretPropertyValue.accept(new JsonValue.Visitor<>() {
 To access a property's raw JSON value, which may be undocumented, call its `_` prefixed method:
 
 ```java
-import com.pgr_service.api.core.JsonField;
 import java.util.Optional;
+import org.egov.pgr.core.JsonField;
 
 JsonField<Object> field = client.citizenService().create(params)._field();
 
@@ -529,12 +529,12 @@ if (field.isMissing()) {
 
 In rare cases, the API may return a response that doesn't match the expected type. For example, the SDK may expect a property to contain a `String`, but the API could return something else.
 
-By default, the SDK will not throw an exception in this case. It will throw [`PgrServiceInvalidDataException`](pgr-service-java-core/src/main/kotlin/com/pgr_service/api/errors/PgrServiceInvalidDataException.kt) only if you directly access the property.
+By default, the SDK will not throw an exception in this case. It will throw [`PgrServiceInvalidDataException`](pgr-service-java-core/src/main/kotlin/org/egov/pgr/errors/PgrServiceInvalidDataException.kt) only if you directly access the property.
 
 If you would prefer to check that the response is completely well-typed upfront, then either call `validate()`:
 
 ```java
-import com.pgr_service.api.models.citizenservice.ServiceResponse;
+import org.egov.pgr.models.citizenservice.ServiceResponse;
 
 ServiceResponse serviceResponse = client.citizenService().create(params).validate();
 ```
@@ -542,7 +542,7 @@ ServiceResponse serviceResponse = client.citizenService().create(params).validat
 Or configure the method call to validate the response using the `responseValidation` method:
 
 ```java
-import com.pgr_service.api.models.citizenservice.ServiceResponse;
+import org.egov.pgr.models.citizenservice.ServiceResponse;
 
 ServiceResponse serviceResponse = client.citizenService().create(
   params, RequestOptions.builder().responseValidation(true).build()
@@ -552,8 +552,8 @@ ServiceResponse serviceResponse = client.citizenService().create(
 Or configure the default for all method calls at the client level:
 
 ```java
-import com.pgr_service.api.client.PgrServiceClient;
-import com.pgr_service.api.client.okhttp.PgrServiceOkHttpClient;
+import org.egov.pgr.client.PgrServiceClient;
+import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
 
 PgrServiceClient client = PgrServiceOkHttpClient.builder()
     .fromEnv()
