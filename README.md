@@ -352,7 +352,7 @@ PgrServiceClient client = PgrServiceOkHttpClient.builder()
 
 ### Environments
 
-The SDK sends requests to the production by default. To send requests to a different environment, configure the client like so:
+The SDK sends requests to the local by default. To send requests to a different environment, configure the client like so:
 
 ```java
 import org.egov.pgr.client.PgrServiceClient;
@@ -360,7 +360,7 @@ import org.egov.pgr.client.okhttp.PgrServiceOkHttpClient;
 
 PgrServiceClient client = PgrServiceOkHttpClient.builder()
     .fromEnv()
-    .environment1()
+    .lts()
     .build();
 ```
 
