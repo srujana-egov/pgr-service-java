@@ -1,4 +1,4 @@
 configured_endpoints: 3
 openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/egov-foundation%2Fpgr-service-569b2778ab4aeb7e2da5d4fb07767f993a087e348b816e94027a0335ed50dd1b.yml
 openapi_spec_hash: 14231c01148821bc1b87c3c255ca0b7e
-config_hash: c1c1c77c519d98fca14be32c99afcdf8
+config_hash: ff64a3773f8a116f18c13b80d415b36a
