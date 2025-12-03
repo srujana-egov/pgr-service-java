@@ -105,20 +105,20 @@ private constructor(
     /**
      * The base URL to use for every request.
      *
-     * Defaults to the production environment: `http://localhost:8083`.
+     * Defaults to the local environment: `http://localhost:8083`.
      *
      * The following other environments, with dedicated builder methods, are available:
-     * - environment_1: `https://digit-lts.digit.org`
+     * - lts: `https://digit-lts.digit.org`
      */
-    fun baseUrl(): String = baseUrl ?: PRODUCTION_URL
+    fun baseUrl(): String = baseUrl ?: LOCAL_URL
 
     fun toBuilder() = Builder().from(this)
 
     companion object {
 
-        const val PRODUCTION_URL = "http://localhost:8083"
+        const val LOCAL_URL = "http://localhost:8083"
 
-        const val ENVIRONMENT_1_URL = "https://digit-lts.digit.org"
+        const val LTS_URL = "https://digit-lts.digit.org"
 
         /**
          * Returns a mutable builder for constructing an instance of [ClientOptions].
@@ -224,10 +224,10 @@ private constructor(
         /**
          * The base URL to use for every request.
          *
-         * Defaults to the production environment: `http://localhost:8083`.
+         * Defaults to the local environment: `http://localhost:8083`.
          *
          * The following other environments, with dedicated builder methods, are available:
-         * - environment_1: `https://digit-lts.digit.org`
+         * - lts: `https://digit-lts.digit.org`
          */
         fun baseUrl(baseUrl: String?) = apply { this.baseUrl = baseUrl }
 
@@ -235,7 +235,7 @@ private constructor(
         fun baseUrl(baseUrl: Optional<String>) = baseUrl(baseUrl.getOrNull())
 
         /** Sets [baseUrl] to `https://digit-lts.digit.org`. */
-        fun environment1() = baseUrl(ENVIRONMENT_1_URL)
+        fun lts() = baseUrl(LTS_URL)
 
         /**
          * Whether to call `validate` on every response before returning it.
