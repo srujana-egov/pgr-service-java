@@ -2,8 +2,8 @@
 
 <!-- x-release-please-start-version -->
 
-[![Maven Central](https://img.shields.io/maven-central/v/org.egov.pgr/pgr-service-java)](https://central.sonatype.com/artifact/org.egov.pgr/pgr-service-java/0.1.0)
-[![javadoc](https://javadoc.io/badge2/org.egov.pgr/pgr-service-java/0.1.0/javadoc.svg)](https://javadoc.io/doc/org.egov.pgr/pgr-service-java/0.1.0)
+[![Maven Central](https://img.shields.io/maven-central/v/org.egov.pgr/pgr-service-java)](https://central.sonatype.com/artifact/org.egov.pgr/pgr-service-java/0.2.0)
+[![javadoc](https://javadoc.io/badge2/org.egov.pgr/pgr-service-java/0.2.0/javadoc.svg)](https://javadoc.io/doc/org.egov.pgr/pgr-service-java/0.2.0)
 
 <!-- x-release-please-end -->
 
@@ -13,7 +13,7 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 <!-- x-release-please-start-version -->
 
-The REST API documentation can be found on [digit-lts.digit.org](https://digit-lts.digit.org). Javadocs are available on [javadoc.io](https://javadoc.io/doc/org.egov.pgr/pgr-service-java/0.1.0).
+The REST API documentation can be found on [digit-lts.digit.org](https://digit-lts.digit.org). Javadocs are available on [javadoc.io](https://javadoc.io/doc/org.egov.pgr/pgr-service-java/0.2.0).
 
 <!-- x-release-please-end -->
 
@@ -24,7 +24,7 @@ The REST API documentation can be found on [digit-lts.digit.org](https://digit-l
 ### Gradle
 
 ```kotlin
-implementation("org.egov.pgr:pgr-service-java:0.1.0")
+implementation("org.egov.pgr:pgr-service-java:0.2.0")
 ```
 
 ### Maven
@@ -33,7 +33,7 @@ implementation("org.egov.pgr:pgr-service-java:0.1.0")
 <dependency>
   <groupId>org.egov.pgr</groupId>
   <artifactId>pgr-service-java</artifactId>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
 </dependency>
 ```
 
