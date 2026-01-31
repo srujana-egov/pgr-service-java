@@ -40,7 +40,14 @@ private constructor(
      */
     fun service(): Optional<CitizenService> = service.getOptional("service")
 
-    /** External workflow instance reference */
+    /**
+     * External workflow instance reference
+     *
+     * This arbitrary value can be deserialized into a custom type using the `convert` method:
+     * ```java
+     * MyClass myObject = serviceWrapper.workflow().convert(MyClass.class);
+     * ```
+     */
     @JsonProperty("workflow") @ExcludeMissing fun _workflow(): JsonValue = workflow
 
     /**
